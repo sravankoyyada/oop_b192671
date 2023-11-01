@@ -1,0 +1,119 @@
+import java.util.*;
+import java.lang.*;
+
+
+ class sites{
+        String product_name;
+        String company_name;
+        double price;
+        int quantity;
+        
+          sites(String product_name,String company_name,double price,int quantity )
+        {
+                this.product_name=product_name;
+                this.company_name=company_name;
+                this.price=price;
+                this.quantity=quantity;
+        }
+        
+        
+}
+
+class amazon extends sites{
+
+     String c_card;
+     amazon(String product_name,String company_name,double price,int quantity ,String card)
+     {
+        super(product_name,company_name,price,quantity );
+        this.c_card=card;
+     }
+     
+     
+     public double totalPrice()
+     {
+        double discprice=(quantity*price);
+        double temp_price=discprice;
+        if(c_card.equals("HDFC") && temp_price>50000)
+        {
+    
+               temp_price=temp_price-(0.25*temp_price); 
+               discprice=temp_price;
+        }
+        else if(c_card.equals("HDFC"))
+        {
+                discprice=discprice-(0.1*discprice);
+        } 
+        else if(temp_price>50000)
+        {
+                temp_price=temp_price-(0.15*temp_price); 
+               discprice=temp_price;
+         }
+        return discprice;  
+     }
+
+}
+
+class flipkart extends sites{
+        String college;
+      flipkart(String product_name,String company_name,double price,int quantity ,String college)
+     {
+        super(product_name,company_name,price,quantity );
+        this.college=college;
+     }
+     
+     
+     public double totalPrice()
+     {
+        double discprice=(quantity*price);
+        double temp_price=discprice;
+        
+        
+        if(college.equals("RGUKT") && temp_price>30000)
+           {
+               temp_price=temp_price-(0.35*temp_price); 
+               discprice=temp_price;
+             //  college="NULL"  ;
+              // temp_price=20000;
+           
+           }
+        else  if(college.equals("RGUKT"))
+        {
+            discprice=discprice-(0.3*discprice);
+          
+        }
+        else if(temp_price>30000)
+        {
+                 discprice=discprice-(0.05*discprice);
+        
+        }        
+        
+        
+        return discprice;  
+     }    
+
+ 
+}
+
+
+
+
+class grandsale{
+        
+        public static void main(String a[])
+        {
+        sites p= new sites("TV","SAMSANG",30000.0,2);
+        amazon ak= new amazon("TV","SAMSANG",30000.0,2,"HDFC");
+        flipkart sk=new flipkart("TV","SAMSANG",30000.0,2,"RGUKT");
+        double p1=ak.totalPrice();
+        double p2=sk.totalPrice();
+         if(p1>p2)
+         {
+              System.out.println("better to buy in flipkart site, and price="+p2+" amazon price= "+p1);
+        } 
+        else
+        {
+           System.out.println("better to buy in amazon site, and price="+p1+" amazon price= "+p2);
+        }      
+   
+        }
+}
