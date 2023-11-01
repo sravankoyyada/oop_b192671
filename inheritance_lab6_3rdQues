@@ -1,0 +1,131 @@
+import java.lang.*;
+import java.util.*;
+
+class employee{
+       String firstname;
+       String lastname;
+       
+       
+       employee(String firstname,String lastname)
+       {
+        this.firstname=firstname; 
+         this.lastname=lastname; 
+       
+       }
+       
+       
+       String getfirstName(String fname)
+       {
+          
+           return firstname;  
+        }
+        
+        String getlastName(String lname)
+       {
+              
+               return lname; 
+        }
+}
+
+class cntrct_employee  extends employee{
+               String department;
+               String designation;
+               int salary;
+               
+               cntrct_employee(String firstname,String lastname,String dept_name,String design,int salary)
+               {
+                        super(firstname,lastname);
+                        this.department=dept_name;
+                         this.designation=design;
+                         this.salary=salary;
+                }
+               
+               void displayFullname( )
+               {
+                        
+                        System.out.println(firstname+" "+lastname);
+
+                }
+                
+                void getDepartment()
+                {
+                        
+                        System.out.println(department);
+                 }
+                 
+                 void getDesig()
+                 {      
+                      
+                        System.out.println(designation);
+                  }   
+                  
+                  void getSalary()
+                  {
+                        
+                        System.out.println(salary);
+                   }
+                               
+}
+
+
+class reg_employee extends employee{
+              String department;
+               String designation;
+               int salary;
+               
+               reg_employee(String firstname,String lastname,String dept_name,String design,int salary)
+               {
+                        super(firstname,lastname);
+                        this.department=dept_name;
+                         this.designation=design;
+                         this.salary=salary;
+                }
+               
+               void displayFullname( )
+               {
+                        
+                        System.out.println(firstname+" "+lastname);
+
+                }
+                
+                void getDepartment()
+                {
+                        
+                        System.out.println(department);
+                 }
+                 
+                 void getDesig(  )
+                 {      
+                       
+                       
+                        System.out.println(designation);
+                  }   
+                  
+                  void getSalary()
+                  {
+                        
+                        System.out.println(salary);
+                   } 
+}
+
+class employer{
+        public static void main(String a[])
+        {
+             employee sk=new employee("Koyyada","Sravan");
+        
+             cntrct_employee obj1=new cntrct_employee("Koyyada","Sravan","CSE","Software Engineer",100000);
+              
+             obj1.displayFullname();
+             obj1.getDepartment();
+             obj1.getSalary();
+             obj1.getDesig();
+             
+             reg_employee obj2=new reg_employee("Koyyada","Siddu","Aeronautics","aeronautical_scientist",150000);
+              obj2.displayFullname();
+              obj2.getDepartment();
+              obj2.getSalary();
+              obj2.getDesig();
+             
+                       
+        }
+}
